@@ -2,7 +2,7 @@
 
 # Variables
 SCRIPT_DIR="/root/scripts"
-SCRIPT_URL="https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2813/KEDC/5865302/check_mariadb.txt"
+SCRIPT_URL="https://raw.githubusercontent.com/charlesholbrook/LinuxScripts/main/check_mariadb.sh"
 SCRIPT_FILE="$SCRIPT_DIR/check_mariadb.sh"
 LOGROTATE_CONF="/etc/logrotate.d/mariadb_monitor"
 LOG_FILE="/var/log/mariadb_monitor.log"
@@ -17,10 +17,10 @@ fi
 echo "📁 Creating script directory..."
 mkdir -p "$SCRIPT_DIR"
 
-echo "⬇️ Downloading mariadb check script..."
+echo "⬇️ Downloading check_mariadb.sh from GitHub..."
 curl -fsSL "$SCRIPT_URL" -o "$SCRIPT_FILE"
 if [[ ! -f "$SCRIPT_FILE" ]]; then
-    echo "❌ Failed to download script."
+    echo "❌ Failed to download check_mariadb.sh."
     exit 1
 fi
 
@@ -35,7 +35,7 @@ if ! grep -Fxq "$CRON_ENTRY" "$CRONTAB_TMP"; then
     crontab "$CRONTAB_TMP"
     echo "✅ Cron job added."
 else
-    echo "⚠️ Cron job already exists."
+    echo "⚠️ Cron job already exists. No changes made."
 fi
 rm -f "$CRONTAB_TMP"
 
