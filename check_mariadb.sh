@@ -2,7 +2,7 @@
 
 # Variables
 SCRIPT_DIR="/root/scripts"
-SCRIPT_URL="SCRIPT_URL=https://raw.githubusercontent.com/charlesholbrook/LinuxScripts/main/scripts/check_mariadb.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/charlesholbrook/LinuxScripts/main/check_mariadb.sh"
 SCRIPT_FILE="$SCRIPT_DIR/check_mariadb.sh"
 LOGROTATE_CONF="/etc/logrotate.d/mariadb_monitor"
 LOG_FILE="/var/log/mariadb_monitor.log"
